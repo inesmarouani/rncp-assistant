@@ -1,0 +1,16 @@
+[project]
+name = "rncp-assistant"
+version = "0.1.0"
+description = "Assistant RAG pour le référentiel RNCP Dev IA"
+requires-python = ">=3.10"
+
+dependencies = [
+    "langchain",
+    "langchain-community",
+    "langchain-ollama",
+    "chromadb",
+    "pypdf",
+    "gradio",
+    "python-dotenv",
+    "langchain-chroma>=1.1.0",
+]

@@ -1,0 +1,57 @@
+Description de ton projet,Analyse des compétences RNCP,timestamp
+Mon projet déploie une API FastAPI avec Docker et un pipeline GitHub Actions. Quelles compétences RNCP couvre-t-il ?,"**1. ✅ Compétences RNCP couvertes**
+
+Le projet que vous avez déployé couvre les compétences RNCP suivantes :
+
+* C5 : Développer une API mettant à disposition le jeu de données en utilisant l'architecture REST afin de permettre l'exploitation du jeu de données par les autres composants du projet.
+ + La création d'une API FastAPI répond à cette compétence, car elle expose des points d'accès pour manipuler les données du projet.
+* C9 : Développer une API exposant un modèle intelligent en utilisant l'architecture REST pour permettre l'interaction entre le modèle et les autres composants du projet.
+ + Bien que la documentation technique couvre les règles d'autorisation de l'API, il n'y a pas de mention spécifique des ""modèles intelligents"" dans cette compétence. Cependant, puisque votre API FastAPI expose des données via une interface RESTful, cela peut être considéré comme répondant à cette compétence.
+
+**2. ❌ Compétences non couvertes**
+
+Les compétences RNCP suivantes ne sont pas directement couvertes par votre projet :
+
+* E3 : Mise en situation (C9, C10, C11, C12, C13)
+ + Il n'y a pas de description du contexte réel ou fictif dans laquelle le projet est développé.
+ + Les outils de pilotage tels que le tableau kanban, burndown chart et backlog sont mentionnés, mais il n'y a pas de mention spécifique de leur utilisation dans le projet.
+* E3 : Mise en situation (C9, C10, C11, C12, C13)
+ + Il n'y a pas de description des procédures de tri détaillées pour la mise en conformité.
+ + Les objectifs et les modalités des rituels ne sont pas partagés avec toutes les parties prenantes.
+
+**3. 💡 Recommandations pour améliorer la couverture**
+
+Pour améliorer la couverture des compétences RNCP, vous pouvez prendre en compte les recommandations suivantes :
+
+* Ajoutez une section dans votre rapport professionnel où vous décrivez le contexte réel ou fictif dans lequel votre projet est développé.
+* Présentez les outils de pilotage utilisés dans votre projet et expliquez leur utilisation.
+* Présentez les procédures de tri détaillées pour la mise en conformité et expliquez comment elles ont été mises en œuvre dans votre projet.
+* Assurez-vous que les objectifs et les modalités des rituels sont partagés avec toutes les parties prenantes.",2026-04-28 09:24:35.886576
+Mon projet déploie une API FastAPI avec Docker et un pipeline GitHub Actions. Quelles compétences RNCP couvre-t-il ?,"**1. ✅ Compétences RNCP couvertes**
+
+Le projet que vous avez déployé couvre les compétences RNCP suivantes :
+
+* C5 : Développer une API mettant à disposition le jeu de données en utilisant l'architecture REST afin de permettre l'exploitation du jeu de données par les autres composants du projet.
+ + La création d'une API FastAPI répond à cette compétence, car elle expose des points d'accès pour manipuler les données du projet.
+* C9 : Développer une API exposant un modèle intelligent en utilisant l'architecture REST pour permettre l'interaction entre le modèle et les autres composants du projet.
+ + Bien que la documentation technique couvre les règles d'autorisation de l'API, il n'y a pas de mention spécifique des ""modèles intelligents"" dans cette compétence. Cependant, puisque votre API FastAPI expose des données via une interface RESTful, cela peut être considéré comme répondant à cette compétence.
+
+**2. ❌ Compétences non couvertes**
+
+Les compétences RNCP suivantes ne sont pas directement couvertes par votre projet :
+
+* E3 : Mise en situation (C9, C10, C11, C12, C13)
+ + Il n'y a pas de description du contexte réel ou fictif dans laquelle le projet est développé.
+ + Les outils de pilotage tels que le tableau kanban, burndown chart et backlog sont mentionnés, mais il n'y a pas de mention spécifique de leur utilisation dans le projet.
+* E3 : Mise en situation (C9, C10, C11, C12, C13)
+ + Il n'y a pas de description des procédures de tri détaillées pour la mise en conformité.
+ + Les objectifs et les modalités des rituels ne sont pas partagés avec toutes les parties prenantes.
+
+**3. 💡 Recommandations pour améliorer la couverture**
+
+Pour améliorer la couverture des compétences RNCP, vous pouvez prendre en compte les recommandations suivantes :
+
+* Ajoutez une section dans votre rapport professionnel où vous décrivez le contexte réel ou fictif dans lequel votre projet est développé.
+* Présentez les outils de pilotage utilisés dans votre projet et expliquez leur utilisation.
+* Présentez les procédures de tri détaillées pour la mise en conformité et expliquez comment elles ont été mises en œuvre dans votre projet.
+* Assurez-vous que les objectifs et les modalités des rituels sont partagés avec toutes les parties prenantes.",2026-04-28 09:24:38.311926
