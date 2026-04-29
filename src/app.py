@@ -17,4 +17,7 @@ interface = gr.Interface(
     description="Décris ton projet et découvre quelles compétences RNCP il couvre !"
 )
 
-interface.launch()
+interface.launch(
+    server_name="0.0.0.0",  # écoute sur toutes les interfaces
+    server_port=7860         # port attendu par HuggingFace
+)
