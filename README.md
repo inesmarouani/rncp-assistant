@@ -1,4 +1,12 @@
-<<<<<<< HEAD
+<<<<<<< HEAD---
+title: RNCP Assistant Dev IA
+emoji: 🎓
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
+
 # 🎓 Assistant RNCP Dev IA — Simplon
 
 ## Description
