@@ -10,7 +10,7 @@ dependencies = [
     "langchain-ollama",
     "chromadb",
     "pypdf",
-    "gradio",
+    "gradio>=5.0.0",
     "python-dotenv",
     "langchain-chroma>=1.1.0",
     "huggingface-hub>=1.12.0",

@@ -1,23 +1,73 @@
 import gradio as gr
-from retriever import chain
+from retriever import chain, retriever
 
-def analyser_projet(description):
+def analyser_projet(description, history):
+    docs = retriever.invoke(description)
+    sources = "\n\n".join([
+        f"📄 Source {i+1} :\n{doc.page_content[:300]}..."
+        for i, doc in enumerate(docs)
+    ])
+    
     result = chain.invoke(description)
-    return result
+    reponse = f"{result}\n\n---\n### 📚 Sources utilisées\n{sources}"
+    
+    # ✅ Nouveau format Gradio 6.0
+    history.append({"role": "user", "content": description})
+    history.append({"role": "assistant", "content": reponse})
+    
+    return history, ""
 
-interface = gr.Interface(
-    fn=analyser_projet,
-    inputs=gr.Textbox(
-        placeholder="Décris ton projet ici...",
-        label="Description de ton projet",
-        lines=5
-    ),
-    outputs=gr.Textbox(label="Analyse des compétences RNCP"),
-    title="🎓 Assistant RNCP Dev IA — Simplon",
-    description="Décris ton projet et découvre quelles compétences RNCP il couvre !"
-)
+with gr.Blocks(
+    title="Assistant RNCP Dev IA"
+) as interface:
+    
+    gr.Markdown("""
+    # 🎓 Assistant RNCP Dev IA — Simplon
+    > Analyse la couverture de ton projet par rapport au référentiel RNCP Développeur IA
+    """)
+    
+    chatbot = gr.Chatbot(
+        label="Conversation",
+        height=500
+    )
+    
+    with gr.Row():
+        input_box = gr.Textbox(
+            placeholder="Décris ton projet ici... ex: Mon projet déploie une API FastAPI avec Docker",
+            label="Description du projet",
+            lines=3,
+            scale=4
+        )
+        submit_btn = gr.Button("🔍 Analyser", variant="primary", scale=1)
+    
+    gr.Examples(
+        examples=[
+            "Mon projet déploie une API FastAPI avec Docker et un pipeline GitHub Actions. Quelles compétences RNCP couvre-t-il ?",
+            "La compétence C13 est-elle validée si j'ai seulement un Dockerfile sans CI/CD ?",
+            "Quelles compétences me manquent pour valider le bloc MLOps ?"
+        ],
+        inputs=input_box
+    )
+    
+    history_state = gr.State([])
+    
+    submit_btn.click(
+        fn=analyser_projet,
+        inputs=[input_box, history_state],
+        outputs=[chatbot, input_box]
+    )
+    
+    input_box.submit(
+        fn=analyser_projet,
+        inputs=[input_box, history_state],
+        outputs=[chatbot, input_box]
+    )
 
 interface.launch(
-    server_name="0.0.0.0",  # écoute sur toutes les interfaces
-    server_port=7860         # port attendu par HuggingFace
+    server_name="0.0.0.0",
+    server_port=7860,
+    theme=gr.themes.Soft(
+        primary_hue="blue",
+        secondary_hue="green",
+    )
 )
