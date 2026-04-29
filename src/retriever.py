@@ -10,7 +10,6 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-print("Token chargé:", os.getenv("HF_TOKEN")[:10])
 
 # 1. Embeddings HuggingFace (gratuit, local)
 embeddings = HuggingFaceEmbeddings(
