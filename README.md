@@ -1,4 +1,4 @@
-<<<<<<< HEAD---
+---
 title: RNCP Assistant Dev IA
 emoji: 🎓
 colorFrom: blue
