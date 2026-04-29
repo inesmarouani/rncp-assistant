@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🎓 Assistant RNCP Dev IA — Simplon
 
 ## Description
@@ -53,3 +54,15 @@ http://localhost:7860
 
 ## Auteur
 Ines Marouani
+=======
+---
+title: Rncp Assistant
+emoji: 👁
+colorFrom: red
+colorTo: purple
+sdk: docker
+pinned: false
+---
+
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+>>>>>>> 09d27b428e6c33bf8b5a6e938cc6c4dca054c120
