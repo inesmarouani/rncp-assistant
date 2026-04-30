@@ -16,31 +16,35 @@ Il analyse une description de projet en langage naturel et identifie les
 compétences couvertes et manquantes, avec justification.
 
 ## Architecture RAG
-📄 PDF RNCP → ✂️ Split (chunks 800 car.) → 🔢 Embed (nomic-embed-text) → 🗄️ Chroma
+📄 Markdown RNCP → ✂️ Split (chunks 800 car.) → 🔢 Embed (all-MiniLM-L6-v2) → 🗄️ Chroma
 ↓
-👤 Question → 🔍 Similarité (top 4 chunks) → 🤖 llama3.2 → 💬 Réponse
+👤 Question → 🔍 Similarité (top 4 chunks) → 🤖 Groq (llama-3.1-8b) → 💬 Réponse
 
 ## Technologies
 - **LangChain** — pipeline RAG
-- **Ollama** — LLM local (llama3.2 + nomic-embed-text)
+- **HuggingFace** — embeddings (all-MiniLM-L6-v2)
 - **ChromaDB** — base vectorielle locale
-- **Gradio** — interface utilisateur web
+- **Groq** — LLM (llama-3.1-8b-instant), API gratuite
+- **Gradio** — interface utilisateur web avec historique
 - **Docker** — conteneurisation
 
 ## Installation et lancement
 
 ### Prérequis
 - Docker installé
-- Ollama installé avec les modèles suivants :
+- Une clé API Groq gratuite sur [console.groq.com](https://console.groq.com)
+
+### Variables d'environnement
+Copie `.env.example` en `.env` et remplis ta clé :
 ```bash
-ollama pull llama3.2
-ollama pull nomic-embed-text
+cp .env.example .env
+# Puis édite .env et ajoute ta clé GROQ_API_KEY
 ```
 
 ### Lancement
 ```bash
 # 1. Cloner le repo
-git clone https://github.com/TON_USERNAME/rncp-assistant.git
+git clone https://github.com/inesmarouani/rncp-assistant.git
 cd rncp-assistant
 
 # 2. Build Docker
@@ -48,7 +52,7 @@ docker build -t rncp-assistant .
 
 # 3. Lancer
 docker run -p 7860:7860 \
-  --add-host=host.docker.internal:host-gateway \
+  -e GROQ_API_KEY=ta_clé_groq \
   -v "${PWD}/vectorstore:/app/vectorstore" \
   rncp-assistant
 
@@ -56,21 +60,14 @@ docker run -p 7860:7860 \
 http://localhost:7860
 ```
 
+## Déploiement
+L'application est déployée publiquement sur HuggingFace Spaces :
+👉 [huggingface.co/spaces/inesmarouani/rncp-assistant](https://huggingface.co/spaces/inesmarouani/rncp-assistant)
+
 ## Exemples de questions testées
 1. *"Mon projet déploie une API FastAPI avec Docker et un pipeline GitHub Actions. Quelles compétences RNCP couvre-t-il ?"*
 2. *"La compétence C13 est-elle validée si j'ai seulement un Dockerfile sans CI/CD ?"*
+3. *"Quelles compétences me manquent pour valider le bloc MLOps ?"*
 
 ## Auteur
-Ines Marouani
-=======
----
-title: Rncp Assistant
-emoji: 👁
-colorFrom: red
-colorTo: purple
-sdk: docker
-pinned: false
----
-
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
->>>>>>> 09d27b428e6c33bf8b5a6e938cc6c4dca054c120
+Ines Marouani 
