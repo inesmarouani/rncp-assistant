@@ -1,4 +1,4 @@
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
@@ -6,7 +6,7 @@ import os
 
 
 # 1. Load
-loader = PyPDFLoader("data/rncp.pdf")
+loader = TextLoader("data/rncp.md", encoding="utf-8")
 documents = loader.load()
 print(f"Pages chargées : {len(documents)}")
 
