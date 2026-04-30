@@ -17,6 +17,9 @@ RUN uv sync --frozen --python /usr/local/bin/python3
 # 6. Copier le reste du code
 COPY . .
 
+# Générer le vectorstore pendant le build
+RUN uv run --python /usr/local/bin/python3 src/ingest.py
+
 # 7. Exposer le port Gradio
 EXPOSE 7860
 
