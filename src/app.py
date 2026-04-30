@@ -1,3 +1,15 @@
+
+
+import os
+import sys
+sys.path.append(os.path.dirname(__file__))
+
+# Générer le vectorstore si absent
+if not os.path.exists("vectorstore"):
+    print("Vectorstore absent — lancement de l'ingestion...")
+    from ingest import run_ingestion
+    run_ingestion()
+
 import gradio as gr
 from retriever import chain, retriever
 
